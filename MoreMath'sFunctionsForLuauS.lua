@@ -5,19 +5,20 @@ local Pi = 3.141592653589793
 betterMath.Math = {
 	pi = 3.141592653589793,	
 	eulersNum = 2.7182818284,
+	
 	midNum = function(tableOfNums:SharedTable)
 		local outputNum = 0
-		for i,v in ipairs(tableOfNums) do
-			if v == not nil and v == not typeof(string) then
+		for i,v in ipairs(tableOfNums) do --ignore this warn
+			if v ~= typeof(string) and v ~= typeof(nil) then
 				outputNum += v
 			else
-				error(`Attempt to find a middle number from typeof({typeof(v)})`)
+				warn(`Attempt to find a middle number from typeof({typeof(v)})`)
 			end
 		end
-		
-		outputNum /= #tableOfNums
+		outputNum /= #tableOfNums --ignore this warn
 		return outputNum
 	end,
+	
 	modNum = function(inputNum:number)
 		local outputNum = inputNum
 		if inputNum < 0 then
@@ -25,6 +26,7 @@ betterMath.Math = {
 		end
 		return outputNum
 	end,
+	
 	sqRt = function(inputNum:number, powness:number)
 		local outputNum = 0
 		
@@ -35,14 +37,17 @@ betterMath.Math = {
 		end
 		return outputNum
 	end,
+	
 	pow = function(inputNum:number, powness:number)
 		local outputNum = inputNum ^ powness
 		return outputNum
 	end,
+	
 	sin = function(inputNum:number)
 		local outputNum = math.sin(inputNum)
 		return outputNum
 	end,
+	
 	cos = function(inputNum:number)
 		local outputNum = math.cos(inputNum)
 		return outputNum
@@ -52,10 +57,12 @@ betterMath.Math = {
 		local outputNum = math.sin(x) / math.cos(x)
 		return outputNum
 	end,
+	
 	cotan = function(x)
 		local outputNum = math.cos(x) / math.sin(x)
 		return outputNum
 	end,
+	
 	secant = function(inputNum:number)
 		local outputNum = 1 / math.cos(inputNum)
 		return outputNum
