@@ -1,14 +1,20 @@
 local betterMath = {}
 local Pi = 3.141592653589793
 
+
 betterMath.Math = {
 	pi = 3.141592653589793,	
 	eulersNum = 2.7182818284,
 	midNum = function(tableOfNums:SharedTable)
 		local outputNum = 0
 		for i,v in ipairs(tableOfNums) do
-			outputNum += v
+			if v == not nil and v == not typeof(string) then
+				outputNum += v
+			else
+				error(`Attempt to find a middle number from typeof({typeof(v)})`)
+			end
 		end
+		
 		outputNum /= #tableOfNums
 		return outputNum
 	end,
