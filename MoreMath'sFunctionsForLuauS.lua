@@ -4,7 +4,14 @@ local Pi = 3.141592653589793
 betterMath.Math = {
 	pi = 3.141592653589793,	
 	eulersNum = 2.7182818284,
-	
+	midNum = function(tableOfNums:SharedTable)
+		local outputNum = 0
+		for i,v in ipairs(tableOfNums) do
+			outputNum += v
+		end
+		outputNum /= #tableOfNums
+		return outputNum
+	end,
 	modNum = function(inputNum:number)
 		local outputNum = inputNum
 		if inputNum < 0 then
